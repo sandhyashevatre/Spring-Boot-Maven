@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	body{
+		background-color: rgb(255, 255, 224);
+	}
+			
+		table {
+		  border-collapse: collapse;
+		  width: 100%;
+		  border: 1px solid rgb(173, 216, 230);
+		  margin-bottom: 20px;
+		}
+		
+		th {
+		  background-color: #f2f2f2;
+		  border: 1px solid rgb(153, 193, 241);
+		  padding: 8px;
+		  text-align: left;
+		}
+		
+		td {
+		  border: 1px solid #ccc;
+		  padding: 8px;
+		}
+	
+		tr:nth-child(even) {
+		  background-color: rgb(173, 216, 230);
+		}
+		form {
+			font-family: pink;
+			font-size: 2em;
+		}
+</style>
+<body>
+	<h1>Cycle Stand Record</h1>
+	<table>
+		<tr>		
+			<th>id</th>
+			<th>Name</th>
+		</tr>
+		<tr th:each="Cycle : ${cycleList}">
+			<td th:text="${Cycle.id}">1</td>
+			<td th:text="${Cycle.name}">sandhya shevatre</td>
+			<td>
+			<form method="post" action="">
+				<input type="submit" value="taken!">
+				<input type="text" name="taken" th:value="${Cycle.id}" hidden>
+			</form>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
